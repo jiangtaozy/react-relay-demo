@@ -9,28 +9,23 @@ import {
   RecordSource,
   Store,
 } from 'relay-runtime'
+import axios from 'axios'
 
 function fetchQuery(
   operation,
   variables,
 ) {
-  return fetch('http://localhost:3000/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: operation.text,
-      variables,
-    }),
+  return axios.post('http://localhost:3000/graphql', {
+    query: operation.text,
+    variables,
   }).then(response => {
-    return response.json();
+    return response.data
   })
 }
 
 const environment = new Environment({
   network: Network.create(fetchQuery),
-  stroe: new Store(new RecordSource()),
+  store: new Store(new RecordSource()),
 })
 
 export default environment
