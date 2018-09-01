@@ -24,3 +24,6 @@ yarn-error.log*
 *.swp
 
 yarn.lock
+
+# relay generated file
+__generated__
