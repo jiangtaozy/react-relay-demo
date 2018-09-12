@@ -4,20 +4,18 @@
  */
 
 import React, { Component } from 'react'
-//import User from './components/User'
-//import UserTodoList from './components/UserTodoList'
+import User from './components/User'
+import UserTodoList from './components/UserTodoList'
 import ViewerTodoList from './components/ViewerTodoList'
 
 class App extends Component {
   render() {
     return (
       <div>
-        {/*
         <User />
         <UserTodoList
           userID='VXNlcjptZQ=='
         />
-        */}
         <ViewerTodoList />
       </div>
     )

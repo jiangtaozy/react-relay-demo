@@ -6,6 +6,7 @@
 import React, { Component } from 'react'
 import { graphql, QueryRenderer } from 'react-relay'
 import environment from '../environment'
+import { Link } from 'found'
 
 type Props = {
   userID: string,
@@ -13,7 +14,7 @@ type Props = {
 
 class UserTodoList extends Component<Props> {
   render() {
-    const { userID } = this.props
+    const { userID } = this.props.route
     return (
       <QueryRenderer
         environment={environment}
@@ -32,7 +33,15 @@ class UserTodoList extends Component<Props> {
           if(!props) {
             return <div>Loading...</div>
           }
-          return <div>User ID: {props.node.id}</div>
+          return (
+            <div>
+              User ID: {props.node.id}
+              <Link
+                to='/todos'>
+                go to viewer
+              </Link>
+            </div>
+          )
         }}
       />
     )

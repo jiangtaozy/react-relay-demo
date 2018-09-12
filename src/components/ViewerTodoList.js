@@ -7,6 +7,7 @@ import React, { Component } from 'react'
 import { graphql, QueryRenderer } from 'react-relay'
 import TodoList from './TodoList'
 import environment from '../environment'
+import { Link } from 'found'
 
 class ViewerTodoList extends Component {
   render() {
@@ -34,6 +35,10 @@ class ViewerTodoList extends Component {
             <div>
               <div>Todo list for User {props.viewer.id}:</div>
               <TodoList userTodoData={props.viewer} />
+              <Link
+                to='/'>
+                go home
+              </Link>
             </div>
           )
         }}
